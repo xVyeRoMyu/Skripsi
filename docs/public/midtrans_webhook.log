@@ -1,0 +1,18 @@
+
+
+[2025-04-12 22:50:58] New Request
+Method: POST
+Headers: {"Host":"71a1-2001-448a-7085-2ad8-1d2f-2700-fca5-50d8.ngrok-free.app","User-Agent":"Veritrans","Content-Length":"750","Content-Type":"application\/json","X-Forwarded-For":"34.101.92.69","X-Forwarded-Host":"71a1-2001-448a-7085-2ad8-1d2f-2700-fca5-50d8.ngrok-free.app","X-Forwarded-Proto":"https","Accept-Encoding":"gzip"}
+Payload: {"transaction_time":"2025-04-13 03:50:58","transaction_status":"capture","transaction_id":"bc6955ef-02b6-4c62-850c-eb3612e144da","status_message":"midtrans payment notification","status_code":"200","signature_key":"23e1fc3772604aa1c65bb2c8e36ff938cbd8e45fb4462f164e8536e03bcee2049b57ab24fbc26c7f24b2742dddc41ec2d94f76fe5b973ece160a37dee66d68ec","payment_type":"credit_card","order_id":"JENS-1744491031-3113","metadata":{"oms_channel_type":"PG_NON_GOPAY"},"merchant_id":"G641921031","masked_card":"48111111-1114","gross_amount":"9300000.00","fraud_status":"accept","expiry_time":"2025-04-21 03:50:58","currency":"IDR","channel_response_message":"Approved","channel_response_code":"00","card_type":"credit","bank":"bni","approval_code":"1744491059885"}
+
+
+[2025-04-12 23:41:58] New Request
+Method: POST
+Headers: {"Host":"71a1-2001-448a-7085-2ad8-1d2f-2700-fca5-50d8.ngrok-free.app","User-Agent":"Veritrans","Content-Length":"750","Content-Type":"application\/json","X-Forwarded-For":"34.101.92.69","X-Forwarded-Host":"71a1-2001-448a-7085-2ad8-1d2f-2700-fca5-50d8.ngrok-free.app","X-Forwarded-Proto":"https","Accept-Encoding":"gzip"}
+Payload: {"transaction_time":"2025-04-13 04:41:58","transaction_status":"capture","transaction_id":"77866b42-0ad6-4351-8262-8f9299b716b1","status_message":"midtrans payment notification","status_code":"200","signature_key":"10865c36216a45671a1794fae5c43442da476bc905c393af83cb6b912aab763ad6b61081b9a627dfbd8288a330dae75c1303fff091b79a0c7d0c09b85efd2bb3","payment_type":"credit_card","order_id":"JENS-1744494088-c9ac","metadata":{"oms_channel_type":"PG_NON_GOPAY"},"merchant_id":"G641921031","masked_card":"48111111-1114","gross_amount":"8250000.00","fraud_status":"accept","expiry_time":"2025-04-21 04:41:58","currency":"IDR","channel_response_message":"Approved","channel_response_code":"00","card_type":"credit","bank":"bni","approval_code":"1744494119390"}
+
+
+[2025-04-13 01:15:36] New Request
+Method: POST
+Headers: {"Host":"71a1-2001-448a-7085-2ad8-1d2f-2700-fca5-50d8.ngrok-free.app","User-Agent":"Veritrans","Content-Length":"751","Content-Type":"application\/json","X-Forwarded-For":"34.101.92.69","X-Forwarded-Host":"71a1-2001-448a-7085-2ad8-1d2f-2700-fca5-50d8.ngrok-free.app","X-Forwarded-Proto":"https","Accept-Encoding":"gzip"}
+Payload: {"transaction_time":"2025-04-13 06:15:35","transaction_status":"capture","transaction_id":"65bdc925-c808-4dc5-be01-3f63b8f24e0f","status_message":"midtrans payment notification","status_code":"200","signature_key":"e58c986013ab28820f4f59519d7015767e2f3358a18ec84f9a13dbdba34a29aebfde1b9da5ba33c881acce9fffa4b1fb3b3aeb14bc960c5cba50faff0f171f81","payment_type":"credit_card","order_id":"JENS-1744499717-9f3c","metadata":{"oms_channel_type":"PG_NON_GOPAY"},"merchant_id":"G641921031","masked_card":"48111111-1114","gross_amount":"19550000.00","fraud_status":"accept","expiry_time":"2025-04-21 06:15:35","currency":"IDR","channel_response_message":"Approved","channel_response_code":"00","card_type":"credit","bank":"bni","approval_code":"1744499736811"}

@@ -1,0 +1,12 @@
+Options -indexes
+
+# Deny all direct access to PHP files
+<FilesMatch "\.php$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Exceptions for front controller and API endpoints
+<FilesMatch "^(index|payment_controller)\.php$">
+    Allow from all
+</FilesMatch>

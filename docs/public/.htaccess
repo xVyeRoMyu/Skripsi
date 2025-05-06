@@ -1,0 +1,23 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Handle preflight requests
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^ - [L]
+    
+    # API payment route - must come before the standard routing
+    RewriteRule ^api/payment/([a-z_]+)$ app/controller/payment_controller.php?action=$1_pdf [QSA,L,NC]
+    
+    # Standard routing
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "http://localhost"
+    Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, PUT, DELETE"
+    Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+    Header always set Access-Control-Allow-Credentials "true"
+    Header always set Access-Control-Max-Age "3600"
+</IfModule>
