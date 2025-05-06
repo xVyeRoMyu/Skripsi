@@ -1,0 +1,748 @@
+/* ==============================================
+   Base Layout Styles
+   ============================================== */
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.container {
+	margin-top: 20px;
+}
+
+/* Base transition for all affected elements */
+.reservation-content,
+.contracted-housing,
+.venue-section,
+.payment-summary-section,
+.modal-content {
+    transition: margin-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+                width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Expanded sidebar states */
+.sidebar-expanded .reservation-content,
+.sidebar-expanded .contracted-housing {
+    margin-left: 125px;
+    width: calc(100% - 75px);
+}
+
+.sidebar-expanded .modal-content {
+    margin-left: 275px;
+    width: calc(100% - 175px);
+}
+
+.sidebar-expanded .venue-section {
+    margin-left: 230px;
+    width: calc(100% - 175px);	
+}
+
+.sidebar-expanded .venue-options {
+	width: 950px;	
+	display: grid;
+	grid-auto-flow: column; /* Force items in a single row */
+	grid-template-columns: none; /* Remove auto-fit behavior */
+}
+
+.sidebar-expanded .payment-summary-section {
+    margin-left: 265px;
+    width: calc(100% - 265px);
+}
+
+/* Collapsed sidebar states with enhanced animation */
+.sidebar-collapsed .reservation-content,
+.sidebar-collapsed .contracted-housing,
+.sidebar-collapsed .venue-section,
+.sidebar-collapsed .payment-summary-section,
+.sidebar-collapsed .modal-content {
+    margin-left: 0;
+    width: 100%;
+    animation: slideBack 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+/* Keyframes for the return animation */
+@keyframes slideBack {
+    0% {
+        transform: translateX(20px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Add slight bounce effect when returning */
+@keyframes bounceBack {
+    0% {
+        transform: translateX(30px);
+    }
+    50% {
+        transform: translateX(-10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Apply bounce animation only when collapsing */
+.sidebar-collapsing .reservation-content,
+.sidebar-collapsing .contracted-housing,
+.sidebar-collapsing .venue-section,
+.sidebar-collapsing .payment-summary-section,
+.sidebar-collapsing .modal-content {
+    animation: bounceBack 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55) both;
+}
+
+.show-all .section-container,
+.show-all .rate-item,
+.show-all .plan-item,
+.show-all .venue-option,
+.show-all .room-info,
+.show-all .unit-info,
+.show-all .room-image,
+.show-all .unit-image {
+    display: block !important;
+}
+/* ==============================================
+   Responsive Grid and Flex Items
+   ============================================== */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: -15px 185px;
+}
+
+.row > [class*="col-"] {
+    padding-right: 100px;
+    padding-left: 100px;
+}
+   
+.payment-summary-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+	margin-top: 30px;
+    width: calc(100% + 30px); /* Account for negative margins */
+}
+
+.payment-summary-section .row > [class*="col-"] {
+    padding-right: 5px; /* Bootstrap default or your preferred value */
+    padding-left: 5px;
+}
+
+.col-md-8, .col-md-4 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+	margin-top: -30px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+/* ==============================================
+   Shared Component Styles
+   ============================================== */
+.reservation-container,
+.contracted-container,
+.venue-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%; /* Ensure containers don't exceed parent width */
+    box-sizing: border-box; /* Include padding in width calculation */
+	margin-left: 85px; 
+}
+
+.room-image img,
+.unit-image img,
+.venue-image img {
+    max-width: 100%; /* Ensure images don't exceed container width */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space under images */
+}
+
+.room-image img,
+.unit-image img,
+.venue-image img {
+    max-height: 400px;
+}
+
+/* Info Section Styles */
+.room-info, 
+.unit-info {
+    margin: 1.5rem 0;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+    display: block !important; /* Ensure they're always visible unless explicitly hidden */
+}
+
+.hotel-section > .container > .row > .col-md-8 > .room-info:first-child,
+.housing-section > .container > .row > .col-md-8 > .unit-info:first-child {
+    margin-top: 0;
+}
+
+.room-info h3,
+.unit-info h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.room-info a,
+.unit-info a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.room-info a:hover,
+.unit-info a:hover {
+    text-decoration: underline;
+}
+
+/* Rate/Plan Item Styles */
+.rate-item,
+.plan-item,
+.venue-option {
+    display: flex;
+	flex-direction: column;
+	gap: 5px;
+    align-items: center;
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.rate-item:hover,
+.plan-item:hover,
+.venue-option:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.rate-details,
+.plan-details {
+    flex: 1;
+	width: 100%;
+    min-width: 200px;
+}
+
+.rate-details h4,
+.plan-details h4 {
+    font-size: 1.1rem;
+    margin: 0 0 0.8rem 0;
+    color: #444;
+}
+
+.rate-details ul,
+.plan-details ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+}
+
+.rate-details li,
+.plan-details li {
+    margin-bottom: 0.3rem;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.rate-details li:before,
+.plan-details li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #007bff;
+}
+
+.rate-price,
+.plan-price,
+.venue-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #2a4365;
+}
+
+/* Button Styles */
+.rate-item button,
+.plan-item button,
+.venue-option button,
+.btn-next,
+.btn-continue,
+.option-button {
+    background: #4a6bdf;
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.rate-item button,
+.plan-item button,
+.venue-option button {
+    min-width: 100px;
+}
+
+.btn-next,
+.btn-continue {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.rate-item button:hover,
+.plan-item button:hover,
+.venue-option button:hover,
+.btn-next:hover,
+.btn-continue:hover,
+.option-button:hover {
+    background: #3a56c4;
+    transform: translateY(-2px);
+}
+
+/* Summary Panel Styles */
+.reservation-summary,
+.housing-summary {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 1rem;
+}
+
+.reservation-summary .total,
+.housing-summary .total {
+    font-size: 1.3rem;
+    margin: 1.5rem 0;
+    font-weight: bold;
+    color: #2a4365;
+    text-align: right;
+}
+
+/* ==============================================
+   Section-Specific Styles
+   ============================================== */
+/* Reservation Section */
+.reservation-content {
+    padding: 2rem 0;
+    background-color: white;
+	margin-bottom: 10px;
+    width: 100%;
+    border-bottom: 1px solid black;
+    box-shadow: 0 5px 10px rgba(0, 0, 100, 0.2);
+    box-sizing: border-box;
+}
+
+/* Contracted Housing Section */
+.contracted-housing {
+    padding: 2rem 0;
+    background-color: #f8f9fa;
+	margin-bottom: 10px;
+    width: 100%;
+	border-bottom: 1px solid black;
+    box-shadow: 0 5px 10px rgba(0, 0, 100, 0.2);
+    box-sizing: border-box;
+}
+
+/* Venue Section */
+.venue-section {
+    padding: 2rem 0;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+	margin-left: 45px;
+}
+
+.venue-section .venue-option {
+    display: block; /* Default state */
+}
+
+.venue-section.filtered .venue-option {
+    display: none;
+}
+
+.venue-section.filtered .venue-option[data-booking-type="venue"] {
+    display: block;
+}
+
+.section-container {
+    display: block !important;
+}
+
+.section-container.filtered {
+    display: none !important;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.venue-section .section-header {
+    margin-top: -20px !important;
+    padding-top: 0;
+    margin-bottom: 1.5rem;
+    margin-left: 60px;
+    width: calc(100% - 60px); /* Match the container width */
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: #2a4365;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #4a6bdf;
+}
+
+.section-header p {
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Venue Options Grid */
+.venue-options {
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+	gap: 25px;
+	width: 100%;
+	max-width: 1050px;
+	padding-bottom: 25px;
+	margin: 0 auto;
+}
+
+.venue-option {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    padding-bottom: 25px;
+}
+
+.venue-option:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.venue-content {
+	position: relative;
+}
+
+.venue-content h3 {
+    font-size: 1.4rem;
+    color: #2a4365;
+    margin-bottom: 0.8rem;
+}
+
+.venue-content p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.venue-features {
+    margin-bottom: 1.5rem;
+}
+
+.venue-features li {
+    margin-bottom: 0.5rem;
+    color: #555;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.venue-features li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #4CAF50;
+}
+
+.option-button {
+    display: inline-block;
+    text-decoration: none;
+}
+/* ==============================================
+   Total Payment Section
+   ============================================== */
+.payment-summary-section {
+    padding: 20px 0;
+    background-color: #f8f9fa;
+	margin-top: 10px;
+    border-top: 1px solid black;
+    box-shadow: 0 -5px 10px rgba(0, 0, 100, 0.2);
+    margin-left: 85px;
+}
+
+.payment-summary-section h3 {
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.payment-summary {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 500px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.payment-summary h4{
+    font-size: 20px;
+	font-weight: bold;
+}
+
+.payment-summary .total {
+    font-size: 15px;
+    margin: 15px 0;
+	margin-right: 35px;
+    color: #555;
+}
+
+.payment-summary #grand-total {
+    font-size: 20px;
+    font-weight: 600;
+	margin-left: 20px;
+    color: #000;
+}
+
+.payment-summary .btn-next {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.payment-summary .btn-next:hover {
+    background-color: #2667d6;
+}
+
+.selected-items-container {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+	margin-left: 10px;
+}
+
+.selected-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.selected-item:last-child {
+    border-bottom: none;
+}
+
+.payment-details {
+    margin: 15px 0;
+}
+
+.payment-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.total {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 20px 0;
+    text-align: right;
+    color: #2a4365;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Payment notice styling */
+.payment-notice {
+    background-color: #fff8e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px 0;
+    border-left: 4px solid #ffc107;
+}
+
+.payment-notice p {
+    margin: 5px 0;
+    color: #e67e22;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: #888;
+    font-size: 0.9em;
+}
+
+.total-cost {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2c3e50;
+    margin-top: 10px;
+}
+
+.addons-container h5 {
+    margin: 10px 0 5px 0;
+    font-size: 15px;
+    color: #555;
+}
+/* ==============================================
+   Calender
+   ============================================== */
+.calendar-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    margin: 5% auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 8px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.date-inputs {
+    margin: 15px 0;
+}
+
+.date-inputs input[type="date"] {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#priceCalculation {
+    font-weight: bold;
+    color: #2a4365;
+}
+/* ==============================================
+   Admin Button
+   ============================================== */
+.admin-floating-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.btn-add {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-add:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    background: #45a049;
+}
+
+.btn-add:active {
+    transform: scale(0.95);
+}
+
+.btn-add::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.btn-add:hover::before {
+    transform: scale(1);
+}
+
+.btn-add span {
+    display: block;
+    line-height: 1;
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+.btn-add:hover span {
+    transform: rotate(90deg);
+}
