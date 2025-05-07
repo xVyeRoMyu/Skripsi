@@ -8,7 +8,7 @@
             }
         }
 		
-		public function index($name = "Alex", $email = "s22110055@student.unklab.ac.id") {
+		public function index($name = "name", $email = "email") {
 			$arr_data['title'] = "Customer History";
 			$arr_data['customer'] = $this->logic("payment_history_model")->getAllDataCustomer();
 			$this->display('template/operator/header', $arr_data);
@@ -16,7 +16,7 @@
 			$this->display('template/operator/footer');
 		}
 		
-		public function active_payment($name = "Alex", $email = "s22110055@student.unklab.ac.id") {
+		public function active_payment($name = "name", $email = "email") {
 			$arr_data['title'] = "Current Active Booking";
 			$arr_data['customer'] = $this->logic("active_booking_model")->getAllDataCustomer();
 			$this->display('template/operator/header', $arr_data);

@@ -1,10 +1,10 @@
 <?php
 	// Define path constants
-	define ("APP_PATH", 'http://localhost/Jens-House/public/');
+	define ("APP_PATH", 'your web url');
 	
 	// Define databse config
-	define("HOST_DB", "localhost");
-	define("NAME_DB", "db_jens_house");
-	define("USER_DB", "opt1");
-	define("PASS_DB", "Jens_House");
+	define("HOST_DB", "define your own database");
+	define("NAME_DB", "database name");
+	define("USER_DB", "database user");
+	define("PASS_DB", "database password");
 ?>

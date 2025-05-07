@@ -1,4 +1,4 @@
-<script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-1vPjTg-CVEbmOtZT"></script>
+<script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="YOUR MIDTRANS CLIENT KEY"></script>
 		<!-- 1) jQuery (Full Version) -->
 		<script src="<?php echo APP_PATH; ?>js/jquery.min.js"></script>
 		

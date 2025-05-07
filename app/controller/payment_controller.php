@@ -329,7 +329,7 @@
 		}
 
 		// Initialize Midtrans
-		\Midtrans\Config::$serverKey = 'SB-Mid-server-DMMTKOneBWHYsTXh5hjrgcHx';
+		\Midtrans\Config::$serverKey = 'YOUR MIDTRANS SERVER KEY';
 		\Midtrans\Config::$isProduction = false;
 
 		$orderId = 'JENS-' . time() . '-' . bin2hex(random_bytes(2));
@@ -345,10 +345,10 @@
 				'email' => $customer['email'],
 				'phone' => $customer['phone'] ?? ''
 			],
-			'finish_redirect_url' => 'http://localhost/Jens-House/public/success',
-			'unfinish_redirect_url' => 'http://localhost/Jens-House/public/pending',
-			'error_redirect_url' => 'http://localhost/Jens-House/public/error',
-			'callback_url' => 'http://localhost/Jens-House/public/midtrans_webhook.php'
+			'finish_redirect_url' => 'url',
+			'unfinish_redirect_url' => 'url',
+			'error_redirect_url' => 'url',
+			'callback_url' => 'url'
 		];
 
 		// Generate payment token
